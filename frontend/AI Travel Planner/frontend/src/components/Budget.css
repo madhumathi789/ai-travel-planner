@@ -1,0 +1,661 @@
+:root {
+  --primary-color: #4f46e5; /* Indigo */
+  --secondary-color: #10b981; /* Emerald */
+  --accent-color: #ea580c; /* Orange */
+  --light-bg: #ffffff;
+  --page-bg: #f7f9fc; /* Slightly cooler background for contrast */
+  --text-color: #1f2937;
+  --muted-text: #6b7280;
+  --border-color: #e5e7eb;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --hover-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+}
+
+/* Base containers */
+.budget-container,
+.budget-detail-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: var(--light-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  font-family: 'Inter', sans-serif;
+  min-height: calc(100vh - 40px);
+}
+
+/* ------------------------- 2. Header and Utility Styles ------------------------- */
+
+.budget-header {
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap; /* For mobile */
+}
+
+.budget-header h1 {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+
+.budget-header h1 svg {
+  margin-right: 10px;
+  color: var(--primary-color);
+}
+
+.budget-header p {
+  color: var(--muted-text);
+  margin-bottom: 0;
+  flex-basis: 100%; /* Ensures paragraph wraps below h1 */
+}
+
+.debug-info {
+  background-color: #fffbeb; /* Light yellow for info */
+  color: #92400e;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 15px;
+  font-size: 0.85rem;
+  border: 1px solid #fcd34d;
+  flex-basis: 100%;
+}
+
+.error-alert {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.success-message {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin: 10px 0;
+  border: 1px solid #a7f3d0;
+  font-weight: 500;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 60px 0;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.spin-animation {
+  animation: spin 1.5s linear infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.refresh-btn {
+  background: none;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  transition: all 0.2s;
+  margin-top: 10px;
+}
+
+.refresh-btn svg {
+  margin-right: 5px;
+}
+
+.refresh-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--light-bg);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 30px;
+  border: 2px dashed #bfdbfe;
+  border-radius: var(--radius);
+  background-color: #f7f9fc;
+  margin-top: 20px;
+}
+
+.empty-icon {
+  margin-bottom: 15px;
+}
+
+.empty-state h3 {
+  color: var(--text-color);
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+}
+
+.empty-state p {
+  color: var(--muted-text);
+}
+
+/* ================================================= */
+/* POLAROID-STYLE TRIP CARDS (FROM MYTRIP.CSS) */
+/* ================================================= */
+
+.trips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 40px;
+  width: 100%;
+  max-width: 1100px;
+  justify-items: center;
+  margin-top: 40px;
+}
+
+/* Polaroid card */
+.polaroid-card {
+  background: #fff;
+  border: 3px solid #f2f2f2;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  width: 270px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  backdrop-filter: blur(3px);
+  cursor: pointer;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.polaroid-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Image overlay for background images */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* Polaroid card content - FIXED: NO white margin */
+.polaroids-contents {
+  background: rgb(255, 255, 255); /* Dark semi-transparent background */
+  margin: 100px 10px 15px 10px;
+  padding: 15px 10px 25px 10px;
+  border-radius: 10px; /* Only round bottom corners */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push content to bottom */
+}
+
+/* Text styles for cards with background images */
+.polaroids-contents h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.trips-info, .trips-dates, .trips-budget {
+  font-size: 0.95rem;
+  margin: 3px 0;
+  font-weight: 400px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  /* color: #000000; */
+}
+
+.trip-budget {
+  font-weight: 700;
+  color: #ffffff; /* WHITE text for budget value */
+  font-size: 1.2rem;
+  margin-top: 8px;
+}
+
+/* View/Delete buttons */
+.card-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.view-btn {
+  flex: 1;
+  background-color: rgba(0, 121, 107, 0.9);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+  background-color: rgba(0, 91, 79, 0.9);
+  transform: scale(1.05);
+}
+
+.delete-btn {
+  flex: 1;
+  background-color: rgba(229, 57, 53, 0.9);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: rgba(198, 40, 40, 0.9);
+  transform: scale(1.05);
+}
+
+/* ================================================= */
+/* DETAILED ITINERARY SCREEN */
+/* ================================================= */
+
+.budget-detail-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 0 0 15px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.detail-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 10px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--muted-text);
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.back-btn:hover {
+  color: var(--primary-color);
+  background-color: #f3f4f6;
+}
+
+.back-btn svg {
+  margin-right: 5px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Info Cards */
+.info-cards {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.info-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 10px;
+  background-color: var(--light-bg);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.info-card svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+/* Specific background and icon colors to match the image */
+.info-cards > div:nth-child(1) {
+  background-color: #eef2ff; /* Destination: Light Indigo */
+}
+.info-cards > div:nth-child(2) {
+  background-color: #d1fae5; /* Duration: Light Green */
+}
+.info-cards > div:nth-child(3) {
+  background-color: #ffedd5; /* Dates: Light Orange */
+}
+.info-cards > div:nth-child(4) {
+  background-color: #f3e8ff; /* Budget: Light Violet */
+}
+
+.info-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted-text);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.info-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+/* Budget Timeline/Progress Bar */
+.budget-timeline {
+  background-color: var(--light-bg);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.budget-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.budget-label {
+  font-size: 1rem;
+  color: var(--muted-text);
+  margin-bottom: 5px;
+}
+
+.budget-amount {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.budget-amount.balance {
+  color: var(--secondary-color);
+}
+
+.budget-amount.used {
+  color: #8b8e96;
+  text-align: right;
+}
+
+.progress-bar {
+  display: flex;
+  height: 35px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fef3c7;
+}
+
+.progress-balance,
+.progress-used {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-bg);
+  font-weight: 550;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: width 0.5s ease-out;
+}
+
+.progress-balance {
+  background-color: var(--secondary-color);
+  padding: 0 10px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.progress-used {
+  background-color:#acb0b8;
+  padding: 0 10px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.progress-balance[style*="width: 0"],
+.progress-used[style*="width: 0"] {
+  border-radius: 0;
+  padding: 0;
+}
+.progress-balance[style*="width: 100"] {
+    border-radius: 8px;
+}
+.progress-used[style*="width: 100"] {
+    border-radius: 8px;
+}
+
+/* Daily Breakdown */
+.daily-breakdown h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.days-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.day-card {
+  background-color: var(--light-bg);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  margin-bottom: 10px;
+}
+
+.day-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.day-card:hover .day-header {
+  background-color: #f9fafb;
+}
+
+.day-info {
+  text-align: left;
+}
+
+.day-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: sans-serif, poppins;
+  color: #000000; 
+}
+
+.day-date {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  margin-top: 3px;
+}
+
+.day-total {
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+
+.day-amount {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-right: 15px;
+}
+
+.day-toggle {
+    display: flex;
+    align-items: center;
+    color: #000000;
+    transition: transform 0.3s;
+}
+
+.day-activities {
+  border-top: 1px solid var(--border-color);
+  padding: 15px 20px;
+  background-color: #f9fafb;
+}
+
+.activity-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed #e5e7eb;
+}
+
+.activity-card:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.activity-info {
+  display: flex;
+  align-items: center;
+}
+
+.activity-info svg {
+  color: #0ea5a4;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.activity-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #000000;
+}
+
+.activity-detail {
+  font-size: 0.8rem;
+  color: var(--muted-text);
+  margin-top: 2px;
+}
+
+.activity-cost {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000;
+}
+
+.no-activities {
+  text-align: center;
+  color: var(--muted-text);
+  padding: 10px 0;
+  font-style: italic;
+}
+
+.no-days {
+  text-align: center;
+  padding: 40px;
+  color: var(--muted-text);
+  border: 1px dashed var(--border-color);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.no-days .debug-info {
+  font-size: 0.8rem;
+  color: var(--muted-text);
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+}
+
+.gold-coin-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid gold;
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+  background-color: #fff;
+}
+
+.card-image-container {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}

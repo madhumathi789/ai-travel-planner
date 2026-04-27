@@ -1,0 +1,326 @@
+===== Global Layout =====
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: url('/src/background.jpg') no-repeat center center/cover;
+  font-family: 'Arial', sans-serif;
+}
+
+/* ===== Left Section ===== *
+.left-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.illustration {
+  max-width: 85%;
+  height: auto;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Floating animation for illustration *
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ===== Right Section ===== *
+.right-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* ❌ Remove background color *
+  background: transparent;
+  padding: -10%;
+  left: 100%;;
+}
+
+/* ===== Form Container ===== *
+.form-container {
+  width: 90%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 12px;
+  background: none;   /* ❌ remove background *
+  box-shadow: none;   /* ❌ remove shadow *
+  color: #f0f0f0;    
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ===== Input Fields ===== *
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #f0f0f0;
+}
+
+.input-box {
+  width: 70%;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.25); /* Slight transparency *
+  color: white;
+  font-size: 0.95rem;
+}
+
+.input-box::placeholder {
+  color: #e0e0e0;
+}
+
+/* Forgot Password *
+.forgot-link {
+  text-align: right;
+  margin-top: 0.6rem;
+  background: transparent; /* ✅ remove box *
+  box-shadow: none; 
+}
+
+.forgot-btn{
+  font-size: 0.9rem;
+  color: #fefefe;
+  text-decoration: underline;
+  background: none; /* ✅ remove background *
+  border: none;     /* ✅ ensure no border/box *
+  box-shadow: none; /* ✅ ensure no shadow *
+}
+
+/* ===== Login Button ===== *
+.login-btn {
+  width: 70%;
+  padding: 0.8rem;
+  background-color: rgba(7, 94, 99, 0.9); /* Transparent teal *
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: rgba(5, 73, 77, 0.9);
+}
+
+/* ===== Register Text ===== *
+.register-text {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #f5f5f5;
+}
+
+.register-link {
+  text-decoration: underline;
+  font-weight: 500;
+  color: #fff;
+}
+
+.register-link:hover {
+  color: #d9d9d9;
+}
+
+/* ===== Responsive ===== *
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .left-section {
+    height: 40%;
+  }
+
+  .right-section {
+    height: 60%;
+  }
+
+  .illustration {
+    max-width: 70%;
+  }
+} */
+
+
+/* ===== Global Layout ===== */
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: url("/src/background.jpg") no-repeat center center/cover;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Left Section ===== */
+.left-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4%;
+}
+
+/* 🔒 IMAGE FIX — LOCKED, NO MOVEMENT */
+.illustration {
+  max-width: 75%;
+  height: auto;
+  object-fit: contain;
+
+  /* FIX */
+  animation: none !important;
+  transform: none !important;
+  position: relative;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* ===== Right Section ===== */
+.right-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Form Container ===== */
+.form-container {
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem 1rem;
+  color: white;
+}
+
+.form-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.8rem;
+  text-align: center;
+}
+
+/* ===== Input Fields ===== */
+.input-group {
+  margin-bottom: 1.2rem;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  color: white;
+}
+
+.input-box {
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #47a4b4;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  outline: none;
+}
+
+.input-box::placeholder {
+  color: #e0e0e0;
+}
+
+/* ===== Forgot Password ===== */
+.forgot-link {
+  width: 100%;
+  text-align: right;
+  margin-top: 0.8rem;
+}
+
+.forgot-btn {
+  font-size: 0.9rem;
+  color: #ffffff;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ===== Error ===== */
+.error-text {
+  color: #ffcccc;
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+/* ===== Login Button ===== */
+.login-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: rgba(7, 94, 99, 0.9);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-top: 1.2rem;
+}
+
+.login-btn:hover {
+  background-color: rgba(5, 73, 77, 0.9);
+}
+
+/* ===== Register Text ===== */
+.register-text {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  color: white;
+}
+
+.register-link {
+  color: white;
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .left-section {
+    height: 40%;
+    padding-left: 0;
+  }
+
+  .right-section {
+    height: 60%;
+  }
+
+  .illustration {
+    max-width: 65%;
+  }
+
+  .form-container {
+    max-width: 90%;
+  }
+}

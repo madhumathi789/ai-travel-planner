@@ -1,0 +1,27 @@
+/* App styles not used; Login component provides layout */
+.global-logo {
+  position: fixed;
+  top: 25px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+}
+
+.global-logo .logo-img {
+  width: 45px;
+  height: 45px;
+}
+
+.global-logo .logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+/* Hide logo ONLY on pages that add .hide-logo */
+.hide-logo .logo {
+  display: none !important;
+}

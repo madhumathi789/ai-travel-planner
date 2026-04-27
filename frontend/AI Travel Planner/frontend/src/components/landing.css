@@ -1,0 +1,25 @@
+/* Full-page background image */
+.landing-container {
+  background: url("/src/landing.jpg") no-repeat center center/cover;
+  height: 115vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center button */
+.landing-button {
+  background-color: #ff0000;
+  color: white;
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.landing-button:hover {
+  background-color: #cc0000;
+}

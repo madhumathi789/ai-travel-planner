@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home | Registration | Login | Search</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .tab { display: none; }
+    .active { display: block; }
+    .nav-btns button {
+      margin: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    label { display: block; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Our Website</h1>
+  <div class="nav-btns">
+    <button onclick="showTab('home')">Home</button>
+    <button onclick="showTab('register')">Registration</button>
+    <button onclick="showTab('login')">Login</button>
+    <button onclick="showTab('search')">Search</button>
+  </div>
+
+  <!-- Home Tab -->
+  <div id="home" class="tab active">
+    <h2>Home Page</h2>
+    <p>This is the home section.</p>
+  </div>
+
+  <!-- Registration Tab -->
+  <div id="register" class="tab">
+    <h2>Registration</h2>
+    <form action="/register" method="POST" enctype="multipart/form-data">
+      <label for="firstName">First Name:</label>
+      <input type="text" name="firstName" id="firstName" required><br>
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" name="lastName" id="lastName" required><br>
+
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required><br>
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required><br>
+
+      <label for="image">Profile Image:</label>
+      <input type="file" name="image" id="image" required><br>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" name="dob" id="dob" required><br>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required><br>
+
+      <label for="phone">Phone:</label>
+      <input type="text" name="phone" id="phone" required><br>
+
+      <label>Gender:</label>
+      <label><input type="radio" name="gender" value="Male" required> Male</label>
+      <label><input type="radio" name="gender" value="Female"> Female</label><br>
+
+      <label>Qualifications:</label>
+      <label><input type="checkbox" name="qualification" value="B.Tech"> B.Tech</label>
+      <label><input type="checkbox" name="qualification" value="M.Tech"> M.Tech</label>
+      <label><input type="checkbox" name="qualification" value="PhD"> PhD</label><br>
+      
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <!-- Login Tab -->
+  <div id="login" class="tab">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="loginUsername">Username:</label>
+      <input type="text" id="loginUsername" required><br>
+
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" required><br>
+
+      <button type="submit">Login</button>
+    </form>
+    <div id="loginResult"></div>
+  </div>
+
+  <!-- Search Tab -->
+  <div id="search" class="tab">
+    <h2>Search User</h2>
+    <label for="searchUsername">Username:</label>
+    <input type="text" id="searchUsername" placeholder="Enter username">
+    <button onclick="searchUser()">Search</button>
+    <div id="searchResult"></div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
+
+      const res = await fetch('/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await res.json();
+      const resultDiv = document.getElementById('loginResult');
+      if (res.status !== 200) {
+        resultDiv.innerHTML = `<p style="color:red">${data.message}</p>`;
+      } else {
+        resultDiv.innerHTML = `
+          <h3>Welcome, ${data.firstName} ${data.lastName}</h3>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Phone:</strong> ${data.phone}</p>
+          <p><strong>DOB:</strong> ${data.dob}</p>
+          <p><strong>Gender:</strong> ${data.gender}</p>
+          <p><strong>Qualification:</strong> ${data.qualification.join(', ')}</p>
+          <img src="/uploads/${data.image}" width="150" alt="User Image">
+        `;
+      }
+    });
+
+    async function searchUser() {
+      const username = document.getElementById('searchUsername').value;
+
+      showTab('search');
+
+      const res = await fetch(`/search?username=${username}`);
+      const data = await res.json();
+
+      const resultDiv = document.getElementById('searchResult');
+      if (res.status === 404 || !data.username) {
+        resultDiv.innerHTML = "<p style='color:red;'>User not found.</p>";
+      } else {
+        resultDiv.innerHTML = `
+          <h3>User Details:</h3>
+          <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Phone:</strong> ${data.phone}</p>
+          <p><strong>DOB:</strong> ${data.dob}</p>
+          <p><strong>Gender:</strong> ${data.gender}</p>
+          <p><strong>Qualification:</strong> ${data.qualification.join(', ')}</p>
+          <img src="/uploads/${data.image}" width="150" alt="User Image">
+        `;
+      }
+    }
+  </script>
+</body>
+</html>

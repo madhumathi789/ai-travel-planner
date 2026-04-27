@@ -1,0 +1,433 @@
+/* .edit-preference-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #e6f2f1;
+} */
+/* 
+ /* .sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+/* 
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #28a745;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-list li {
+  padding: 12px 20px;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #6c757d;
+  display: block;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-list li.active a,
+.nav-list li a:hover {
+  background-color: #d0e8e6;
+  color: #00796b;
+}*/
+/* .edit-preference-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #e6f2f1;
+  padding: 10px 10px 0 10px;   /* top, left padding controls position *
+  display: flex;
+  justify-content: flex-start; /* align card to the left *
+}
+
+
+.logout {
+  padding: 20px;
+  border-top: 1px solid #ccc;
+ }  
+
+.logout button {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: #6c757d;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* .main-content {
+  flex: 1;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 20px auto;
+  background-color: #e6f2f1;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+} *
+ .main-content {
+  flex: 1;
+  padding: 40px;
+  background-color: whitesmoke;   /* white card *
+  border-radius: 12px;
+  width: 100%;
+  max-width: none;             /* remove fixed width *
+  margin: 0;                   /* remove centering *
+  box-shadow: none;            /* no card-shadow *
+}
+
+
+.main-content h2 {
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.destination {
+  margin-bottom: 30px;
+}
+
+.destination-inputs {
+  display: flex;
+  gap: 20px;
+}
+
+.destination-inputs input {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: wh;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #00796b;
+  outline: none;
+}
+
+.save-btn {
+  background-color: #00796b;
+  color: white;
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+  display: block;
+  margin: 30px auto 0 auto;  /* auto left/right = centered *
+  width: 60%;                /* adjust width as you like *
+}
+
+.save-btn:hover {
+  background-color: #004d40;
+}
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top-color: #2ecc71;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-overlay p {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #333;
+} */
+
+.edit-preference-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #e6f2f1;
+  padding: 10px 10px 0 10px;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+
+/* Logout section */
+.edit-preference-container .logout {
+  padding: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.edit-preference-container .logout button {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: #6c757d;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Main content */
+.edit-preference-container .main-content {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+
+  /* 🔥 Full-page card look */
+  background-color: #cdece6;
+  border-radius: 0;
+
+  /* remove any iframe-like look */
+  max-width: none;
+  margin: 0;
+  box-shadow: none;
+
+  /* ensures the area being blurred is ONLY the content, not sidebar */
+  position: relative;
+  z-index: 1;
+}
+
+
+.edit-preference-container .main-content h2 {
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* FORM */
+.edit-preference-container .form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-preference-container .destination {
+  margin-bottom: 30px;
+}
+
+.edit-preference-container .destination-inputs {
+  display: flex;
+  gap: 20px;
+}
+
+.edit-preference-container .destination-inputs input {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Form row */
+.edit-preference-container .form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.edit-preference-container .form-row .form-group {
+  flex: 1;
+}
+
+/* Labels */
+.edit-preference-container label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+/* Inputs */
+.edit-preference-container input[type="text"],
+.edit-preference-container input[type="date"],
+.edit-preference-container input[type="number"],
+.edit-preference-container select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: whitesmoke;
+  /* transition: border-color 0.3s; */
+}
+
+.edit-preference-container input[type="text"]:focus,
+.edit-preference-container input[type="date"]:focus,
+.edit-preference-container input[type="number"]:focus,
+.edit-preference-container select:focus {
+  border-color: #00796b;
+  outline: none;
+}
+
+/* Save button */
+.edit-preference-container .save-btn {
+  background-color: #00796b;
+  color: white;
+  padding: 12px 0;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: block;
+  margin: 30px auto 0 auto;
+  width: 60%;
+  /* transition: background-color 0.3s; */
+}
+
+.edit-preference-container .save-btn:hover {
+  background-color: #004d40;
+}
+/* ========================================================= */
+/* ✨ MAGIC LOADING SCREEN (Matches Home Page)               */
+/* ========================================================= */
+
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* SPARKLES */
+.sparkles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  animation: sparkleFall 5s linear infinite;
+  opacity: 0.9;
+  font-weight: 700;
+}
+
+@keyframes sparkleFall {
+  0% { transform: translateY(-10vh) rotate(0deg); }
+  100% { transform: translateY(120vh) rotate(360deg); }
+}
+
+/* CENTER BOX */
+.loader-container {
+  text-align: center;
+  z-index: 10;
+}
+
+/* Rotating pastel circle */
+.rotating-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  border: 6px solid transparent;
+
+  border-top-color: #FFB3BA;
+  border-right-color: #FFDFBA;
+  border-bottom-color: #BAFFC9;
+  border-left-color: #BAE1FF;
+
+  animation: rotateCircle 1.8s linear infinite;
+}
+
+@keyframes rotateCircle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* loading text */
+.loading-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2e7d32;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}

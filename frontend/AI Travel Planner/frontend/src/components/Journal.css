@@ -1,0 +1,142 @@
+.journal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #fdfdfd;
+  padding: 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.new-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  border-radius: 15px;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.new-note:hover {
+  border-color: #8b8475;
+  background-color: #f9f3f3;
+}
+
+.plus-icon {
+  font-size: 48px;
+  color: #c08a17;
+}
+
+.notes-preview {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 30px;
+}
+
+.note-preview-card {
+  background: #f8f8f8;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.note-preview-card:hover {
+  background: #fcf0c3;
+}
+
+/* --- Editor View --- */
+/* Remove bottom margin from editor-container to center perfectly */
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 60px;
+  left:300px;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: 0; /* remove previous margin-bottom */
+}
+.back-btn {
+  position: fixed; /* fix it to viewport instead of relative to editor */
+  top: 20px;       /* distance from top of page */
+  left: 300px;      /* distance from left of page */
+  background-color: #00796b;
+  color: #333;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 1000;   /* make sure it's above everything */
+}
+
+.back-btn:hover {
+  background-color: #004d40;
+}
+
+
+.note-title {
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+.note-content {
+  min-height: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: vertical;
+  outline: none;
+}
+
+.save-note-btn {
+  margin-top: 15px;
+  align-self: flex-end;
+  padding: 10px 20px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-note-btn:hover {
+  background-color: #004d40;
+}
+.note-preview-card {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-note-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+  color: #777;
+}
+
+.delete-note-btn:hover {
+  color: #d9534f;
+}

@@ -1,0 +1,149 @@
+/* ===== Sidebar/Navbar Layout ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #28a745;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  top: 200px;
+}
+
+.nav-item {
+  padding: 12px 20px;
+  color: #6c757d;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  position: relative;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+/* Dot indicator on active */
+.nav-item::before {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+/* Active states per page */
+.nav-item.active-home {
+  background-color: #e8f5e8;
+  color: #28a745;
+}
+.nav-item.active-home::before {
+  background-color: #28a745;
+}
+
+.nav-item.active-trips {
+  background-color: #e3f2fd;
+  color: #2196f3;
+}
+.nav-item.active-trips::before {
+  background-color: #2196f3;
+}
+
+.nav-item.active-memories {
+  background-color: #fce4ec;
+  color: #e91e63;
+}
+.nav-item.active-memories::before {
+  background-color: #e91e63;
+}
+
+.nav-item.active-journal {
+  background-color: #fff3e0;
+  color: #ff9800;
+}
+.nav-item.active-journal::before {
+  background-color: #ff9800;
+}
+
+.nav-item.active-budget {
+  background-color: #f1f8e9;
+  color: #8bc34a;
+}
+.nav-item.active-budget::before {
+  background-color: #8bc34a;
+}
+
+.nav-item.active-preference {
+  background-color: #ede7f6;
+  color: #673ab7;
+}
+.nav-item.active-preference::before {
+  background-color: #673ab7;
+}
+
+.nav-item.active-profile {
+  background-color: #e0f7fa;
+  color: #009688;
+}
+.nav-item.active-profile::before {
+  background-color: #009688;
+}
+
+/* Hover states matching active colors */
+.nav-item.home:hover {
+  background-color: #e8f5e8;
+  color: #28a745;
+}
+.nav-item.trips:hover {
+  background-color: #e3f2fd;
+  color: #2196f3;
+}
+.nav-item.memories:hover {
+  background-color: #fce4ec;
+  color: #e91e63;
+}
+.nav-item.journal:hover {
+  background-color: #fff3e0;
+  color: #ff9800;
+}
+.nav-item.budget:hover {
+  background-color: #f1f8e9;
+  color: #8bc34a;
+}
+.nav-item.preference:hover {
+  background-color: #ede7f6;
+  color: #673ab7;
+}
+.nav-item.profile:hover {
+  background-color: #e0f7fa;
+  color: #009688;
+}
+
+.main-content {
+  margin-left: 250px;
+}

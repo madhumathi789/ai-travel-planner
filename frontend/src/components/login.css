@@ -1,0 +1,146 @@
+/* ===== Global Layout ===== */
+.login-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Left Section ===== */
+.left-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Illustration ===== */
+.illustration {
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ===== Right Section ===== */
+.right-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 5%;
+}
+
+/* ===== Form Container ===== */
+.form-container {
+  width: 100%;
+  max-width: 380px;
+  padding: 2rem 1rem;
+  color: white;
+}
+
+.form-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.8rem;
+  text-align: center;
+  color: white;
+}
+
+/* ===== Input Fields ===== */
+.input-group {
+  margin-bottom: 1.2rem;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  color: white;
+}
+
+.input-box {
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #47a4b4;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  outline: none;
+}
+
+.input-box::placeholder {
+  color: #e0e0e0;
+}
+
+/* ===== Buttons ===== */
+.login-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: rgba(7, 94, 99, 0.9);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin-top: 1.2rem;
+}
+
+.login-btn:hover {
+  background-color: rgba(5, 73, 77, 0.9);
+}
+
+.forgot-btn {
+  font-size: 0.9rem;
+  color: #ffffff;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.register-text {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  color: white;
+}
+
+.register-text a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* ===== Error ===== */
+.error-text {
+  color: #ffcccc;
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .left-section {
+    height: 40%;
+  }
+
+  .right-section {
+    height: 60%;
+  }
+
+  .illustration {
+    max-width: 65%;
+  }
+
+  .form-container {
+    max-width: 90%;
+  }
+}

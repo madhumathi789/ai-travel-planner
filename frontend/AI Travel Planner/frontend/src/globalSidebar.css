@@ -1,0 +1,587 @@
+/* === GLOBAL STATIC SIDEBAR ===
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Sidebar styles *
+.app-sidebar {
+  width: 280px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* pushes logout to bottom *
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* centers both horizontally *
+  gap: 10px; /* space between image and text *
+  margin-bottom: 30px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #ff758c, #ffb347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.nav-list {
+  list-style: none;
+  padding: 3px;
+  margin: 0;
+  top: 30px;
+  gap:8px;
+}
+
+.nav-list li {
+  padding: 8px 14px;
+  margin-bottom: 10px;
+}
+
+.app-sidebar .nav-list li a {
+  text-decoration: none;
+  font-weight: 400;
+  color: black;
+  display: block;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 18px 24px;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 18px;
+}
+
+/* .nav-list li a:hover {
+  background-color: #d0e8e6;
+  color: #00796b;
+} */
+ /* Home *
+.nav-home:hover a {
+  background-color: #e3f2fd;   /* light blue *
+  color: #1565c0;              /* deep blue *
+  transform: scale(1.06);
+
+ 
+}
+
+/* My Trips *
+.nav-mytrips:hover a {
+  background-color: #f3e5f5;   /* soft purple *
+  color: #8e24aa;              /* purple accent *
+  transform: scale(1.06);
+
+}
+
+/* Memories *
+.nav-memories:hover a {
+  background-color: #fff3e0;   /* light orange *
+  color: #e65100;              /* dark orange *
+  transform: scale(1.06);
+
+}
+
+/* Journal *
+.nav-journal:hover a {
+  background-color: #e8f5e9;   /* mint-green *
+  color: #ff758c;              /* deep green *
+  transform: scale(1.06);
+
+}
+
+/* Budget *
+.nav-budget:hover a {
+  background-color: #ffebee;   /* soft red *
+  color: #c62828;              /* strong red *
+  transform: scale(1.06);
+
+}
+
+/* Edit Preferences *
+.nav-editpreferences:hover a {
+  background-color: #e0f2f1;   /* light teal *
+  color: #00796b;              /* teal *
+  transform: scale(1.06);
+
+}
+
+/* Profile *
+.nav-profile:hover a {
+  background-color: #eceff1;   /* light grey *
+  color: maroon;              /* slate *
+  transform: scale(1.06);
+
+}
+.nav-logout span {
+  display: block;
+  padding: 18px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 6px;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.25s;
+}
+
+.nav-logout:hover span {
+  background-color: #ffebee;  /* same soft red you chose *
+  color: #d32f2f;
+  transform: scale(1.06);
+}
+
+
+
+/* Main content container *
+.app-main {
+  flex: 1;
+  margin-left: 250px;
+  background-color: #e6f2f1;
+  padding: 40px;
+  min-height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+/* .nav-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  margin-top: 30px;
+   } *
+.logout-item {
+  border: none;
+  background: none;
+  text-align: left;
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-bottom: 60px;
+
+}
+.logout-item:hover {
+  background-color: #d0e8e6;
+  color: #00796b;
+}
+.nav-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;   /* move nav items UP *
+  padding-top: 10px;             /* adjust as you like *
+}
+.logo-placeholder {
+  height: 80px;     /* same as logo height + margin *
+  margin-bottom: 30px; 
+} */
+
+
+/* === GLOBAL STATIC SIDEBAR === */
+/* ========================================================= */
+/* SIDEBAR LAYOUT */
+/* ========================================================= */
+/* 
+.app-sidebar {
+  width: 280px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.08);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+}
+
+/* Logo Area *
+.logo,
+.logo-placeholder {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #ff758c, #ffb347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========================================================= */
+/* MENU STRUCTURE */
+/* ========================================================= *
+
+.sidebar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Base style for all sidebar links *
+.sidebar-item a,
+.sidebar-item span {
+  display: block;
+  padding: 30px 29px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #000;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.25s ease,
+              color 0.25s ease,
+              transform 0.2s ease;
+}
+
+/* Hover Animation *
+.sidebar-item:hover a,
+.sidebar-item:hover span {
+  transform: scale(1.05);
+}
+
+/* ========================================================= */
+/* CUSTOM ITEM HOVER COLORS */
+/* ========================================================= */
+
+/* Home *
+.sidebar-item.nav-home:hover a {
+  background-color: #e3f2fd !important;
+  color: #1565c0 !important;
+}
+
+/* My Trips *
+.sidebar-item.nav-mytrips:hover a {
+  background-color: #f3e5f5 !important;
+  color: #8e24aa !important;
+}
+
+/* Memories *
+.sidebar-item.nav-memories:hover a {
+  background-color: #fff3e0 !important;
+  color: #e65100 !important;
+}
+
+/* Journal *
+.sidebar-item.nav-journal:hover a {
+  background-color: #ffe0ef !important;
+  color: #ff4f94 !important;
+}
+
+/* Budget *
+.sidebar-item.nav-budget:hover a {
+  background-color: #ffebee !important;
+  color: #c62828 !important;
+}
+
+/* Edit Preferences *
+.sidebar-item.nav-editpreferences:hover a {
+  background-color: #e0f2f1 !important;
+  color: #00796b !important;
+}
+
+/* Profile *
+.sidebar-item.nav-profile:hover a {
+  background-color: #ebfff4 !important;
+  color:black !important;
+}
+
+/* Logout (span, not anchor) *
+.sidebar-item.nav-logout:hover span {
+  background-color: #ffebee !important;
+  color: #d32f2f !important;
+}
+
+/* ========================================================= */
+/* ACTIVE NAVLINK FIX (removes ugly default grey) */
+/* ========================================================= */
+
+/* ACTIVE STATES (same as hover) */
+
+/* Home active *
+.sidebar-item.nav-home a.active {
+  background-color: #e3f2fd !important;
+  color: #1565c0 !important;
+}
+
+/* My Trips active *
+.sidebar-item.nav-mytrips a.active {
+  background-color: #f3e5f5 !important;
+  color: #8e24aa !important;
+}
+
+/* Memories active *
+.sidebar-item.nav-memories a.active {
+  background-color: #fff3e0 !important;
+  color: #e65100 !important;
+}
+
+/* Journal active *
+.sidebar-item.nav-journal a.active {
+  background-color: #ffe0ef !important;
+  color: #ff4f94 !important;
+}
+
+/* Budget active *
+.sidebar-item.nav-budget a.active {
+  background-color: #ffebee !important;
+  color: #c62828 !important;
+}
+
+/* Edit Preferences active *
+.sidebar-item.nav-editpreferences a.active {
+  background-color: #e0f2f1 !important;
+  color: #00796b !important;
+}
+
+/* Profile active *
+.sidebar-item.nav-profile a.active {
+  background-color: #ebfff4 !important;
+  color: black !important;
+}
+
+
+/* ========================================================= */
+/* MAIN CONTENT */
+/* ========================================================= *
+
+.app-main {
+  flex: 1;
+  margin-left: 280px;
+  background-color: #e6f2f1;
+  padding: 40px;
+  min-height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+.sidebar-icon {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+} */
+
+
+
+/* ============================= */
+/* SIDEBAR CONTAINER */
+/* ============================= */
+
+.app-sidebar {
+  width: 280px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.08);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+}
+
+/* ============================= */
+/* LOGO */
+/* ============================= */
+
+.logo,
+.logo-placeholder {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #ff758c, #ffb347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================= */
+/* MENU STRUCTURE */
+/* ============================= */
+
+.sidebar-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ============================= */
+/* UNIVERSAL ITEM STYLE (links & logout) */
+/* ============================= */
+
+.sidebar-item a,
+.sidebar-item.nav-logout {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 26px 28px;
+  font-size: 17px;
+  font-weight: 400;
+
+  color: #000;
+  border-radius: 8px;
+  text-decoration: none;
+
+  transition: background-color 0.25s ease,
+              color 0.25s ease,
+              transform 0.2s ease;
+}
+
+/* hover animation */
+.sidebar-item:hover a,
+.sidebar-item.nav-logout:hover {
+  transform: scale(1.05);
+}
+
+/* icon style */
+.sidebar-icon {
+  width: 22px;
+  height: 22px;
+}
+/* ============================= */
+/* HOVER COLORS — EXACT FROM SCREENSHOT */
+/* ============================= */
+
+.sidebar-item.nav-home:hover a {
+  background-color: #EBD7EE !important;
+  color: #3C1F47 !important; /* darker lavender text */
+}
+
+.sidebar-item.nav-mytrips:hover a {
+  background-color: #F4C7CD !important;
+  color: #8E2040 !important; /* rose */
+}
+
+.sidebar-item.nav-memories:hover a {
+  background-color: #C9F2C9 !important;
+  color: #1C6B1C !important; /* green */
+}
+
+.sidebar-item.nav-journal:hover a {
+  background-color: #F6E3A0 !important;
+  color: #8F6200 !important; /* golden brown */
+}
+
+.sidebar-item.nav-budget:hover a {
+  background-color: #C5E8F4 !important;
+  color: #005679 !important; /* deep blue */
+}
+
+.sidebar-item.nav-editpreferences:hover a {
+  background-color: #D0D6F4 !important;
+  color: #2A3A92 !important; /* periwinkle text */
+}
+
+.sidebar-item.nav-profile:hover a {
+  background-color: #B7D4C2 !important;
+  color: #094428 !important; /* forest green */
+}
+
+/* Logout hover */
+.sidebar-item.nav-logout:hover {
+  background-color: #F4C7CD !important; /* matched MyTrips pink tone */
+  color: #B91228 !important;
+}
+
+/* ============================= */
+/* ACTIVE STATES (MATCH SAME COLORS) */
+/* ============================= */
+
+.sidebar-item.nav-home a.active {
+  background-color: #EBD7EE !important;
+  color: #3C1F47 !important;
+}
+
+.sidebar-item.nav-mytrips a.active {
+  background-color: #F4C7CD !important;
+  color: #8E2040 !important;
+}
+
+.sidebar-item.nav-memories a.active {
+  background-color: #C9F2C9 !important;
+  color: #1C6B1C !important;
+}
+
+.sidebar-item.nav-journal a.active {
+  background-color: #F6E3A0 !important;
+  color: #8F6200 !important;
+}
+
+.sidebar-item.nav-budget a.active {
+  background-color: #C5E8F4 !important;
+  color: #005679 !important;
+}
+
+.sidebar-item.nav-editpreferences a.active {
+  background-color: #D0D6F4 !important;
+  color: #2A3A92 !important;
+}
+
+.sidebar-item.nav-profile a.active {
+  background-color: #B7D4C2 !important;
+  color: #094428 !important;
+}
+
+/* ============================= */
+/* MAIN CONTENT */
+/* ============================= */
+
+.app-main {
+  flex: 1;
+  margin-left: 280px;
+  background-color: #e6f2f1;
+  padding: 40px;
+  min-height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
