@@ -22,7 +22,7 @@ const Home = () => {
 
     const fetchSaved = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/itineraries/${id}`);
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/itineraries/${id}`);
         const data = await res.json();
         setTrip(data);
         setSpentItems({});
@@ -49,7 +49,7 @@ const Home = () => {
       try {
         localStorage.setItem("spentItems", JSON.stringify({}));
         setSpentItems({});
-        const response = await fetch("http://localhost:5000/api/generate-itinerary", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/generate-itinerary`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -80,7 +80,9 @@ const Home = () => {
 
     const loadLast = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/itineraries");
+        const res = await fetch(
+          `${process.env.REACT_APP_API_URL}/api/itineraries`
+        );
         const list = await res.json();
         if (list.length > 0) {
           setTrip(list[0]); 
